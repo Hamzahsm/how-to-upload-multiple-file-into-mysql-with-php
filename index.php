@@ -1,4 +1,10 @@
 <?php 
+//connecting to database 
+$conn = mysqli_connect('yourhost', 'username', 'password', 'dbname');
+//checking if failed to connecting the database
+if(mysqli_connect_errno()){
+  echo "Failed To Connect With The Database Because :" . mysqli_connect_error();
+}
 
 //if submit button was clicked
 if(isset($_POST['submit'])){
@@ -18,6 +24,10 @@ if(isset($_POST['submit'])){
       move_uploaded_file($tmpFilePath, $dirusers);
     }
   }
+  
+  //insert into mysqli
+  $query = "INSERT INTO yourtable (username, files) VALUES ('$username', '$files');
+  $query_run = mysqli_query($conn, $query);
 }
 ?>
 
