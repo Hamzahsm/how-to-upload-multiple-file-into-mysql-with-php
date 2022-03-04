@@ -1,6 +1,6 @@
 <?php 
 //connecting to database 
-$conn = mysqli_connect('yourhost', 'username', 'password', 'dbname');
+$conn = mysqli_connect('localhost', 'root', '', 'ytb');
 //checking if failed to connecting the database
 if(mysqli_connect_errno()){
   echo "Failed To Connect With The Database Because :" . mysqli_connect_error();
