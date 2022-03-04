@@ -17,17 +17,23 @@ if(isset($_POST['submit'])){
     $tmpFilePath = $_FILES['files']['tmp_name'][$i]; //checking the tmp file each file
     if($tmpFilePath !=""){
       //set new dir each user who fill the form with their username
-      $dirusers = "yourfolder/". $username;
+      $dirusers = "./files/". $username;
       mkdir($dirusers);
       $newPathFile = "$dirusers/" .$_FILES['files']['name'][$i];
       //memindah file ke dalam folder yang telah dibuat
-      move_uploaded_file($tmpFilePath, $dirusers);
+      move_uploaded_file($tmpFilePath, $newPathFile);
     }
   }
   
   //insert into mysqli
   $query = "INSERT INTO yourtable (username, files) VALUES ('$username', '$files')";
   $query_run = mysqli_query($conn, $query);
+  
+  if($query_run){
+    echo"<script>alert('success insert into database!');</script>";
+  } else {
+    echo"<script>alert('Opps, failed insert into database!');</script>";
+  }
 }
 ?>
 
