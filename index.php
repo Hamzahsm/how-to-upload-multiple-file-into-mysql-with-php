@@ -11,10 +11,10 @@ if(isset($_POST['submit'])){
   //this username below is use to make a directory user who fill the form
   $username = $_POST['username'];
   
-  $files = array_filter($_FILES['files']['name]); //file yang diupload dijadikan array
-  $total_count = count($_FILES['files']['name']; //menghitung jumlah array
-  for($i = 0 ; i < $total_count ; i++) {
-    $tmpFilePath = $_FILES['files']['tmp_name'][$i] //checking the tmp file each file
+  $files = array_filter($_FILES['files']['name']); //file yang diupload dijadikan array
+  $total_count = count($_FILES['files']['name']); //menghitung jumlah array
+  for($i = 0 ; $i < $total_count ; $i++) {
+    $tmpFilePath = $_FILES['files']['tmp_name'][$i]; //checking the tmp file each file
     if($tmpFilePath !=""){
       //set new dir each user who fill the form with their username
       $dirusers = "yourfolder/". $username;
@@ -26,7 +26,7 @@ if(isset($_POST['submit'])){
   }
   
   //insert into mysqli
-  $query = "INSERT INTO yourtable (username, files) VALUES ('$username', '$files');
+  $query = "INSERT INTO yourtable (username, files) VALUES ('$username', '$files')";
   $query_run = mysqli_query($conn, $query);
 }
 ?>
