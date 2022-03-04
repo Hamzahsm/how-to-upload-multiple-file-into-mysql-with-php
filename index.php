@@ -41,7 +41,7 @@ if(isset($_POST['submit'])){
     <label for="username"> Username </label>
     <input type="text" id="username" name="username" /> <br> <br>
     <label for=""> Choose Files </label>
-    <input type="file" multiple name="files[] /> <br>
+    <input type="file" multiple name="files[]" /> <br>
     <button type="submit" name="submit"> Submit </button>
   </form>
 </body>
